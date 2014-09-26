@@ -1,0 +1,10 @@
+body {
+  background-color: black;
+}
+
+.cell {
+  background: pink;
+  float: left;
+  height: 25%;
+  border: 2px solid white;
+}
