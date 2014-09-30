@@ -1,9 +1,16 @@
+@font-face {
+    font-family: "Clear Sans";
+    src: url("/fonts/ClearSans-Bold.tff");
+}
+
 body {
   background-color: black;
+  color: #67CDF2;
+  font-family: "Clear Sans";
 }
 
 .cell {
-  background: pink;
+  background: rgba(238, 238, 218, 0.35);
   float: left;
   width: 150px;
   height: 150px;
