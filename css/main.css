@@ -4,15 +4,32 @@
 }
 
 body {
-  background-color: black;
-  color: #67CDF2;
-  font-family: "Clear Sans";
+    background-color: grey;
+    color: #67CDF2;
+    font-family: "Clear Sans";
+    text-align: center;
+}
+
+.board {
+    background-color: #E8FFFA;
+    width: 470px;
+    height: 470px;
+    margin: 20px auto;
+    padding: 7px;
+    border-radius: 1px;
 }
 
 .cell {
-  background: rgba(238, 238, 218, 0.35);
-  float: left;
-  width: 150px;
-  height: 150px;
-  border: 2px solid white;
+    background: #FFFFFF;
+    border: 2px solid #97E9FF;
+    border-radius: 1px;
+    float: left;
+    font-size: 3em;
+    height: 100px;
+    margin: 7px;
+    width: 100px;
+}
+
+.cell div {
+    margin-top: 20px;
 }
