@@ -1,25 +1,27 @@
+randomInt = (x) ->
+  Math.floor(Math.random() * x)
+
 buildBoard = ->
-  board = []
-  for row in [0..3]
-      # console.log "row: ", row
-      board[row] = []
+  # board = []
+  # for row in [0..3]
+  #   board[row] = []
+  #   for column in [0..3]
+  #       board[row][column] = 0
+  # board
+  [0..3].map -> [0..3].map -> 0
 
-      for column in [0..3]
-          board[row][column] = 0
-          # console.log "column: ", column
-
-      # console.log "board: ", board
-  # console.log board
-  console.log "build board"
-  board
+randomCellIndices = ->
+  [randomInt(4), randomInt(4)]
 
 generateTile = ->
+  value = 2
+  console.log "randomInt: #{randomInt(4)}"
   console.log "generate tile"
 
 printArray =  (array) ->
   console.log "-- Start --"
   for row in array
-      console.log row
+    console.log row
   console.log "-- End --"
 
 
