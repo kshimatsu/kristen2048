@@ -30,40 +30,60 @@ generateTile = (board) ->
   console.log "generate tile"
 
 move = (board, direction) ->
+  newBoard = buildBoard()
 
   for i in [0..3]
     if direction is 'right'
       row = getRow(i, board)
-      mergeCells(row, direction)
-      collapseCells()
+      row = mergeCells(row, direction)
+      row = collapseCells(row, direction)
+      setRow(row, i, newBoard)
+
+  newBoard
 
 getRow = (r, board) ->
-  console.log 'get row'
-  # boardArray[index]
   [board[r][0], board[r][1], board[r][2], board[r][3]]
+
+setRow = (row, index, board) ->
+  board[index] = row
+
 
 mergeCells = (row, direction)->
   if direction is 'right'
     for a in [3...0]
       for b in [a-1..0]
-        console.log a, b
 
         if row[a] is 0
-          console.log 'cell is 0'
           break
         else if row[a] == row[b]
-          console.log 'cells are the same'
           row[a] *= 2
           row[b] = 0
           break
         else if row[b] isnt 0
-          console.log 'different'
           break
-        else if row[b] == 0
-          console.log 'different again'
-
-
   row
+
+  # if direction is 'left'
+  #   for a in [0...3]
+  #     for b in [a+1..0]
+  #       console.log a, b
+
+  #       if row[a] is 0
+  #         console.log 'cell is 0'
+  #         break
+  #       else if row[a] == row[b]
+  #         console.log 'cells are the same'
+  #         row[a] *= 2
+  #         row[b] = 0
+  #         break
+  #       else if row[b] isnt 0
+  #         console.log 'different'
+  #         break
+  #       else if row[b] == 0
+  #         console.log 'different again'
+  # row
+# console.log mergeCells([4, 0, 4, 0], 'left')
+
 
 collapseCells = (row, direction) ->
   # Remove '0'
@@ -74,7 +94,13 @@ collapseCells = (row, direction) ->
       row.unshift 0
   row
 
-console.log mergeCells [4, 0, 2, 0], 'right'
+moveIsValid = (originalBoard, newBoard) ->
+  for row in [0..3]
+    for col in [0..3]
+      if originalBoard[row][col] isnt newBoard[row][col]
+        return true # return is to stop the entire function, break will just break the interior
+
+  false
 
 showBoard = (board) ->
   for row in [0..3]
@@ -101,8 +127,10 @@ $ ->
     key = e.which
     keys = [37..40]
 
-    if key in keys > -1
+    if key in keys
+      e.preventDefault()
       # continue the game
+      console.log "key: ", key
       direction = switch key
         when 37 then 'left'
         when 38 then 'up'
@@ -110,8 +138,14 @@ $ ->
         when 40 then 'down'
 
       # try moving
-      move(@board, direction)
+      newBoard = move(@board, direction)
+      printArray(newBoard)
       # check the move validity
+      if moveIsValid(@board, newBoard)
+        console.log "valid"
+        @board = newBoard
+      else
+        console.log "invalid"
     else
       # do nothing
 
