@@ -154,7 +154,9 @@
           printArray(newBoard);
           if (moveIsValid(_this.board, newBoard)) {
             console.log("valid");
-            return _this.board = newBoard;
+            _this.board = newBoard;
+            generateTile(_this.board);
+            return showBoard(_this.board);
           } else {
             return console.log("invalid");
           }
