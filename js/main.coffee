@@ -246,7 +246,7 @@ $ ->
         # show board
         showBoard(@board)
         # check game lost
-        $("#random-quote").html(quoteToShow(getBiggestNumber(@board)))
+        $(".actual-quote").html(quoteToShow(getBiggestNumber(@board)))
         $("#background-image").css(
           'background',
           'url(' + backgroundToShow(getBiggestNumber(@board)) + ')'

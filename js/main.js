@@ -321,7 +321,7 @@
             _this.board = newBoard;
             generateTile(_this.board);
             showBoard(_this.board);
-            $("#random-quote").html(quoteToShow(getBiggestNumber(_this.board)));
+            $(".actual-quote").html(quoteToShow(getBiggestNumber(_this.board)));
             $("#background-image").css('background', 'url(' + backgroundToShow(getBiggestNumber(_this.board)) + ')');
             $(".actual-score").html(currentScore(_this.board));
             if (isGameOver(_this.board)) {
