@@ -5,7 +5,7 @@
 
 body {
   background-color: white;
-  background-image: none;
+  background-image: url(http://images1.fanpop.com/images/photos/2300000/Rachel-McAdams-as-Regina-George-rachel-mcadams-2377123-1600-900.jpg);
   color: #7F164F;
   font-family: "Clear Sans";
   text-align: center;
@@ -15,13 +15,19 @@ h2 {
   font-size: 1em;
 
 }
+
+.outterDiv {
+  width: 470px;
+  padding: 0;
+}
+
 .board {
   background-color: #FEA3FF;
   width: 470px;
   height: 470px;
-  margin: 20px auto;
+  margin: 20px 0px 0px 0px;
   padding: 7px;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .cell {
@@ -41,59 +47,112 @@ h2 {
 
 .val-0 {
   background: white;
+  text-align: right;
 }
 
 .val-2 {
   background-image: url(http://www.rantlifestyle.com/wp-content/uploads/2014/04/37zr9inkqdfp21wifd6p.png);
   background-size: 100px;
+  text-align: right;
 }
 
 .val-4 {
   background-image: url(http://www.nextmovie.com/wp-content/uploads/2012/03/mean-girls-rachel-mcadams150.jpg);
   background-size: 100px;
+  text-align: right;
 }
 
 .val-8 {
   background-image: url(http://www.laweekly.com/imager/mean-girls-paint-swastikas-leave-poop-at/b/original/4234732/16d2/mean_girls.JPG);
   background-size: 100px;
+  text-align: right;
 }
 
 .val-16 {
   background-image: url(http://17rg073sukbm1lmjk9jrehb643.wpengine.netdna-cdn.com/wp-content/uploads/2014/07/mg1.jpg);
   background-size: 100px;
+  text-align: right;
 }
 
 .val-32 {
   background-image: url(http://www.glamour.com/images/health-fitness/2012/12/mean-girls-christmas-skit-square-w352.jpg);
   background-size: 100px;
+  text-align: right;
 }
 
 .val-64 {
   background-image: url(http://www.glamour.com/images/entertainment/2014/03/01-mean-girls-party-square-w352.jpg);
   background-size: 100px;
+  text-align: right;
 }
 
 .val-128 {
   background-image: url(http://www.whowhatwear.com/img/uploads/current/images/0/142/10/square.original.350x350uc.jpg);
   background-size: 100px;
+  text-align: right;
 }
 
 .val-256 {
   background-image: url(http://www.glamour.com/images/entertainment/2014/05/dionne-clueless-hat-square-w352.jpg);
   background-size: 100px;
+  text-align: right;
 }
 
 .val-512 {
   background-image: url(http://www.nextmovie.com/wp-content/uploads/2012/03/mean-girls-rachel-mcadams150.jpg);
   background-size: 100px;
+  text-align: right;
 }
 
-
-
-#restart_game {
+.score {
   background-color: #FF78C1;
   border: 2px;
   border-radius: 2px;
   height: 30px;
   width: 100px;
+  float: right;
+  margin-top: 30px;
 }
+
+.actual-score {
+  font-size: 18px;
+  margin-top: 3px;
+}
+
+.title {
+  float: left;
+}
+
+#restart_game {
+  background-color: #FF78C1;
+  border: 2px;
+  border-radius: 2px;
+  height: 50px;
+  width: 100px;
+  float: right;
+  margin-top: 10px;
+}
+
+.quote-and-restart-container {
+  width: 470px;
+  height: 60px;
+  margin-top: 70px;
+
+}
+
+.quote {
+background-color: #FEA3FF;
+float: left;
+margin-top: 10px;
+padding-top: 0px;
+height: 50px;
+width: 350px;
+border-radius: 2px;
+}
+
+#actual-quote {
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 15px;
+}
+

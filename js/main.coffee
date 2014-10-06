@@ -183,19 +183,25 @@ getBiggestNumber = (board) ->
         biggestSeenSoFar = value
   biggestSeenSoFar
 
-# changeBackground = (background) ->
-#   switch background
-#     when 2 then img src="http://www.imgbase.info/images/safe-wallpapers/tv_movies/mean_girls/3156-tv_movies_mean_girls_wallpaper.jpg")
-#     when 4 then "That's so fetch!"
-#     when 8 then "Get in loser, we're going shopping."
-#     when 16 then "She doesn't even go here!"
-#     when 32 then "We wear pink on Wednesdays."
-#     when 64 then "That's why her hair is so big; it's full of secrets."
-#     when 128 then "One time, she punched me in the face. It was awesome."
-#     when 256 then "So you think you're really pretty."
-#     when 512 then "I hate my pores."
-#     when 1024 then "You girls keep me young."
+backgroundToShow = (background) ->
+  switch background
+    when 2 then "http://www.imgbase.info/images/safe-wallpapers/tv_movies/mean_girls/3156-tv_movies_mean_girls_wallpaper.jpg"
+    when 4 then "http://images1.fanpop.com/images/photos/2300000/Rachel-McAdams-as-Regina-George-rachel-mcadams-2377123-1600-900.jpg"
+    when 8 then "Get in loser, we're going shopping."
+    when 16 then "She doesn't even go here!"
+    when 32 then "We wear pink on Wednesdays."
+    when 64 then "That's why her hair is so big; it's full of secrets."
+    when 128 then "One time, she punched me in the face. It was awesome."
+    when 256 then "So you think you're really pretty."
+    when 512 then "I hate my pores."
+    when 1024 then "You girls keep me young."
 
+currentScore = (board) ->
+  score = 0
+  for array in board
+    for element in array
+      score += element
+  score
 
 
 $ ->
@@ -240,15 +246,12 @@ $ ->
         # show board
         showBoard(@board)
         # check game lost
-        # myQuote = randomQuote() #need to store result of function to show later
-        # $("#random_quote").html("#{myQuote}")
-
-        #biggestNumberOnBoard = getBiggestNumber(@board)
-        #console.log "biggest number is: " + biggestNumberOnBoard
-        $("#random_quote").html(quoteToShow(getBiggestNumber(@board)))
-        # $("#background-image").css(changeBackground(getBiggestNumber(@board)))
-
-
+        $("#random-quote").html(quoteToShow(getBiggestNumber(@board)))
+        $("#background-image").css(
+          'background',
+          'url(' + backgroundToShow(getBiggestNumber(@board)) + ')'
+        )
+        $(".actual-score").html(currentScore(@board))
         if isGameOver(@board)
           console.log "Game over!!"
         else
