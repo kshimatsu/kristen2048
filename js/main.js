@@ -253,15 +253,15 @@
       case 4:
         return "http://images1.fanpop.com/images/photos/2300000/Rachel-McAdams-as-Regina-George-rachel-mcadams-2377123-1600-900.jpg";
       case 8:
-        return "Get in loser, we're going shopping.";
+        return "http://desktop.freewallpaper4.me/view/original/7590/mean-girls--2004.jpg";
       case 16:
-        return "She doesn't even go here!";
+        return "http://www.freeartwallpapers.com/wp-content/uploads/2014/07/lindsay-lohan-makeup-by-mean-girls.jpg";
       case 32:
-        return "We wear pink on Wednesdays.";
+        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaofWpey6KQ8Z3KhLF328ERu0gYaTJ7YvUtREVVTS64e-KGVLafg";
       case 64:
-        return "That's why her hair is so big; it's full of secrets.";
+        return "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQPQ_mRpLG2hLnTM0yJPmfba6daM2_JSFkueo3k8DlvJWUig_Nvnw";
       case 128:
-        return "One time, she punched me in the face. It was awesome.";
+        return "http://www.thejanedough.com/wp-content/uploads/2012/10/meangirls.jpg";
       case 256:
         return "So you think you're really pretty.";
       case 512:
@@ -322,7 +322,7 @@
             generateTile(_this.board);
             showBoard(_this.board);
             $(".actual-quote").html(quoteToShow(getBiggestNumber(_this.board)));
-            $("#background-image").css('background', 'url(' + backgroundToShow(getBiggestNumber(_this.board)) + ')');
+            $("body").css('background-image', 'url(' + backgroundToShow(getBiggestNumber(_this.board)) + ')');
             $(".actual-score").html(currentScore(_this.board));
             if (isGameOver(_this.board)) {
               return console.log("Game over!!");
