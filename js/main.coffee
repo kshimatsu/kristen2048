@@ -96,8 +96,6 @@ mergeCells = (cells, direction)->
   #       else if row[b] isnt 0
   #         break
 
-
-
 collapseCells = (row, direction) ->
   # Remove '0'
   row = row.filter (x) -> x isnt 0
@@ -136,11 +134,14 @@ isGameOver = (board) ->
 showBoard = (board) ->
   for row in [0..3]
     for col in [0..3]
+      for power in [1..11]
+        $(".r#{row}.c#{col}").removeClass('val-' + Math.pow(2, power))
       if board[row][col] is 0
-        $(".r#{row}.c#{col} > div").html("")
+        $(".r#{row}.c#{col} > div").html('')
       else
         $(".r#{row}.c#{col} > div").html(board[row][col])
-  console.log "show board"
+        $(".r#{row}.c#{col}").addClass('val-' + board[row][col])
+
 
 printArray =  (array) ->
   console.log "-- Start --"
@@ -148,12 +149,69 @@ printArray =  (array) ->
     console.log row
   console.log "-- End --"
 
+restartGame = () ->
+  window.location.reload();
+
+randomQuote = () ->
+  quotes = [
+    "fetch",
+    "None for Gretchen Weiners",
+    "So you think you're really pretty",
+    "You can't sit with us",
+  ]
+  size = quotes.length
+  quotes[randomInt(size)]
+
+quoteToShow = (number) ->
+  switch number
+    when 2 then "That's not a thing."
+    when 4 then "That's so fetch!"
+    when 8 then "Get in loser, we're going shopping."
+    when 16 then "She doesn't even go here!"
+    when 32 then "We wear pink on Wednesdays."
+    when 64 then "That's why her hair is so big; it's full of secrets."
+    when 128 then "One time, she punched me in the face. It was awesome."
+    when 256 then "So you think you're really pretty."
+    when 512 then "I hate my pores."
+    when 1024 then "You girls keep me young."
+
+getBiggestNumber = (board) ->
+  biggestSeenSoFar = 0
+  for row in board
+    for value in row
+      if value > biggestSeenSoFar
+        biggestSeenSoFar = value
+  biggestSeenSoFar
+
+# changeBackground = (background) ->
+#   switch background
+#     when 2 then img src="http://www.imgbase.info/images/safe-wallpapers/tv_movies/mean_girls/3156-tv_movies_mean_girls_wallpaper.jpg")
+#     when 4 then "That's so fetch!"
+#     when 8 then "Get in loser, we're going shopping."
+#     when 16 then "She doesn't even go here!"
+#     when 32 then "We wear pink on Wednesdays."
+#     when 64 then "That's why her hair is so big; it's full of secrets."
+#     when 128 then "One time, she punched me in the face. It was awesome."
+#     when 256 then "So you think you're really pretty."
+#     when 512 then "I hate my pores."
+#     when 1024 then "You girls keep me young."
+
+
 
 $ ->
+
+  $('.board').hide()
+  $('.board').fadeIn(5000)
+
+  @board = buildBoard()
   @board = buildBoard()
   generateTile(@board)
   generateTile(@board)
+  biggestNumber = getBiggestNumber(@board)
   showBoard(@board)
+
+  $('#restart_game').click(restartGame)
+
 
   $('body').keydown (e) =>
 
@@ -182,6 +240,15 @@ $ ->
         # show board
         showBoard(@board)
         # check game lost
+        # myQuote = randomQuote() #need to store result of function to show later
+        # $("#random_quote").html("#{myQuote}")
+
+        #biggestNumberOnBoard = getBiggestNumber(@board)
+        #console.log "biggest number is: " + biggestNumberOnBoard
+        $("#random_quote").html(quoteToShow(getBiggestNumber(@board)))
+        # $("#background-image").css(changeBackground(getBiggestNumber(@board)))
+
+
         if isGameOver(@board)
           console.log "Game over!!"
         else
