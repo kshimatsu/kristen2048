@@ -209,7 +209,7 @@
   quoteToShow = function(number) {
     switch (number) {
       case 2:
-        return "That's not a thing.";
+        return "She is one of the dumbest girls you will ever meet.";
       case 4:
         return "That's so fetch!";
       case 8:
@@ -219,15 +219,17 @@
       case 32:
         return "We wear pink on Wednesdays.";
       case 64:
-        return "That's why her hair is so big; it's full of secrets.";
+        return "Is butter a carb?";
       case 128:
-        return "One time, she punched me in the face. It was awesome.";
+        return "So you think you're really pretty";
       case 256:
-        return "So you think you're really pretty.";
+        return "I'm a mouse. Duh.";
       case 512:
         return "I hate my pores.";
       case 1024:
         return "You girls keep me young.";
+      case 2048:
+        return "That's why her hair is so big, it's full of secrets!";
     }
   };
 
@@ -249,25 +251,27 @@
   backgroundToShow = function(background) {
     switch (background) {
       case 2:
-        return "http://www.imgbase.info/images/safe-wallpapers/tv_movies/mean_girls/3156-tv_movies_mean_girls_wallpaper.jpg";
+        return "../images/plastics.jpg";
       case 4:
-        return "http://images1.fanpop.com/images/photos/2300000/Rachel-McAdams-as-Regina-George-rachel-mcadams-2377123-1600-900.jpg";
+        return "../images/bg4.jpg";
       case 8:
-        return "http://desktop.freewallpaper4.me/view/original/7590/mean-girls--2004.jpg";
+        return "../images/bg8.jpg";
       case 16:
-        return "http://www.freeartwallpapers.com/wp-content/uploads/2014/07/lindsay-lohan-makeup-by-mean-girls.jpg";
+        return "../images/bg16.jpg";
       case 32:
-        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaofWpey6KQ8Z3KhLF328ERu0gYaTJ7YvUtREVVTS64e-KGVLafg";
+        return "../images/bg32.jpg";
       case 64:
-        return "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQPQ_mRpLG2hLnTM0yJPmfba6daM2_JSFkueo3k8DlvJWUig_Nvnw";
+        return "../images/bg64.jpg";
       case 128:
-        return "http://www.thejanedough.com/wp-content/uploads/2012/10/meangirls.jpg";
+        return "../images/bg128.jpg";
       case 256:
-        return "So you think you're really pretty.";
+        return "../images/bg256.jpg";
       case 512:
-        return "I hate my pores.";
+        return "../images/bg512.jpg";
       case 1024:
-        return "You girls keep me young.";
+        return "../images/bg1024.jpg";
+      case 2048:
+        return "../images/bg2048.jpg";
     }
   };
 
@@ -325,7 +329,7 @@
             $("body").css('background-image', 'url(' + backgroundToShow(getBiggestNumber(_this.board)) + ')');
             $(".actual-score").html(currentScore(_this.board));
             if (isGameOver(_this.board)) {
-              return console.log("Game over!!");
+              return alert("You can't sit with us!");
             } else {
               return showBoard(_this.board);
             }

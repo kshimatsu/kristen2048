@@ -164,16 +164,17 @@ randomQuote = () ->
 
 quoteToShow = (number) ->
   switch number
-    when 2 then "That's not a thing."
+    when 2 then "She is one of the dumbest girls you will ever meet."
     when 4 then "That's so fetch!"
     when 8 then "Get in loser, we're going shopping."
     when 16 then "She doesn't even go here!"
     when 32 then "We wear pink on Wednesdays."
-    when 64 then "That's why her hair is so big; it's full of secrets."
-    when 128 then "One time, she punched me in the face. It was awesome."
-    when 256 then "So you think you're really pretty."
+    when 64 then "Is butter a carb?"
+    when 128 then "So you think you're really pretty"
+    when 256 then "I'm a mouse. Duh."
     when 512 then "I hate my pores."
     when 1024 then "You girls keep me young."
+    when 2048 then "That's why her hair is so big, it's full of secrets!"
 
 getBiggestNumber = (board) ->
   biggestSeenSoFar = 0
@@ -185,16 +186,17 @@ getBiggestNumber = (board) ->
 
 backgroundToShow = (background) ->
   switch background
-    when 2 then "http://www.imgbase.info/images/safe-wallpapers/tv_movies/mean_girls/3156-tv_movies_mean_girls_wallpaper.jpg"
-    when 4 then "http://images1.fanpop.com/images/photos/2300000/Rachel-McAdams-as-Regina-George-rachel-mcadams-2377123-1600-900.jpg"
-    when 8 then "http://desktop.freewallpaper4.me/view/original/7590/mean-girls--2004.jpg"
-    when 16 then "http://www.freeartwallpapers.com/wp-content/uploads/2014/07/lindsay-lohan-makeup-by-mean-girls.jpg"
-    when 32 then "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaofWpey6KQ8Z3KhLF328ERu0gYaTJ7YvUtREVVTS64e-KGVLafg"
-    when 64 then "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQPQ_mRpLG2hLnTM0yJPmfba6daM2_JSFkueo3k8DlvJWUig_Nvnw"
-    when 128 then "http://www.thejanedough.com/wp-content/uploads/2012/10/meangirls.jpg"
-    when 256 then "So you think you're really pretty."
-    when 512 then "I hate my pores."
-    when 1024 then "You girls keep me young."
+    when 2 then "../images/plastics.jpg"
+    when 4 then "../images/bg4.jpg"
+    when 8 then "../images/bg8.jpg"
+    when 16 then "../images/bg16.jpg"
+    when 32 then "../images/bg32.jpg"
+    when 64 then "../images/bg64.jpg"
+    when 128 then "../images/bg128.jpg"
+    when 256 then "../images/bg256.jpg"
+    when 512 then "../images/bg512.jpg"
+    when 1024 then "../images/bg1024.jpg"
+    when 2048 then "../images/bg2048.jpg"
 
 currentScore = (board) ->
   score = 0
@@ -254,7 +256,7 @@ $ ->
         )
         $(".actual-score").html(currentScore(@board))
         if isGameOver(@board)
-          console.log "Game over!!"
+          alert "You can't sit with us!"
         else
           # show board
           showBoard(@board)
